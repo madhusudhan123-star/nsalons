@@ -5,15 +5,17 @@ import Footer from './components/Footer';
 import Header from './components/Header'
 import Second from './components/Second';
 import Service from './components/Service';
+import Dealslide from './components/Dealslide';
 
 function App() {
   return (
     <div className="App">
       <Header />
+      <Dealslide />
       <Second />
-      <TestimonialsSection />
+      {/* <TestimonialsSection />
       <Service />
-      <ClientsSection />
+      <ClientsSection /> */}
       <ContactUs />
       <Footer />
       {/* need add more things */}
