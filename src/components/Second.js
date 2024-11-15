@@ -22,84 +22,19 @@ const Second = () => {
             <div className="flex flex-col lg:flex-row lg:space-x-8">
                 {/* Left Section */}
                 <div className="lg:w-3/5 mb-8 lg:mb-0 lg:p-10">
-                    <h1 className="text-3xl font-bold text-gray-800 mb-4">Teamwork Creative Solutions</h1>
+                    <h1 className="text-3xl font-bold text-gray-800 mb-4">N Salons - Your Destination for Style & Elegance</h1>
                     <p className="text-gray-600 leading-relaxed text-xl">
-                        With two decades of expertise, our company stands as a leader in the industry. Over the past 20 years, we have honed our skills and knowledge, delivering exceptional service and innovative solutions to our clients. Our experience spans various sectors like Infrastructure, Pharma, Real Estate, Education, Hospitality, Healthcare, and Information Technology. We've built a reputation for reliability, excellence, and a deep commitment to customer satisfaction.
+                        For over a decade, N Salons has been at the forefront of style, beauty, and personal care, dedicated to delivering exceptional salon experiences. Our highly skilled team specializes in personalized services that enhance natural beauty, using the latest trends and techniques. At N Salons, we believe in quality, consistency, and a unique approach to every client, ensuring you leave with a refreshed, confident look every time.
                         <br /><br />
-                        At Teamworks, we offer a wide range of corporate video production services tailored to meet your specific video requirements. Distinguishing ourselves among video production companies, we seamlessly integrate high-quality professional videos into your marketing strategy. Going beyond expectations, we provide comprehensive services including video production, Ad films, 3D Walkthroughs, 3D Graphics, and creative marketing strategies.
+                        We offer an extensive range of services, including haircuts, styling, coloring, skin treatments, manicures, pedicures, and more. Our expertise extends to specialized treatments such as hair spa, anti-dandruff care, skin brightening facials, and customized grooming packages. At N Salons, we prioritize using premium products that promote healthy hair and skin while achieving the results you desire.
+                        <br /><br />
+                        Experience the art of relaxation and transformation at N Salons. Our commitment to exceptional service, ambiance, and client satisfaction sets us apart as your trusted salon partner. Discover elegance and style at N Salons—where beauty meets sophistication.
                     </p>
                 </div>
+
                 {/* Right Section (Contact Form) */}
                 <div className="lg:w-2/5 flex flex-col items-center p-6">
-                    <h1 className="text-3xl font-semibold text-gray-800 mb-6">Get In Touch With Us</h1>
-                    <form onSubmit={handleSubmit} className="w-full">
-                        <input
-                            id="name"
-                            type="text"
-                            name="name"
-                            placeholder="Name"
-                            required
-                            className="w-full p-3 mb-4 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                        />
-                        <ValidationError
-                            prefix="Name"
-                            field="name"
-                            errors={state.errors}
-                            className="text-red-500 text-sm mb-2"
-                        />
-
-                        <input
-                            id="email"
-                            type="email"
-                            name="email"
-                            placeholder="Email"
-                            required
-                            className="w-full p-3 mb-4 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                        />
-                        <ValidationError
-                            prefix="Email"
-                            field="email"
-                            errors={state.errors}
-                            className="text-red-500 text-sm mb-2"
-                        />
-
-                        <input
-                            id="phone"
-                            type="tel"
-                            name="phone"
-                            placeholder="Phone Number"
-                            required
-                            className="w-full p-3 mb-4 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                        />
-                        <ValidationError
-                            prefix="Phone"
-                            field="phone"
-                            errors={state.errors}
-                            className="text-red-500 text-sm mb-2"
-                        />
-
-                        <textarea
-                            id="message"
-                            name="message"
-                            placeholder="Your Message (Optional)"
-                            rows="4"
-                            className="w-full p-3 mb-4 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                        />
-                        <ValidationError
-                            prefix="Message"
-                            field="message"
-                            errors={state.errors}
-                            className="text-red-500 text-sm mb-2"
-                        />
-
-                        <button
-                            type="submit"
-                            disabled={state.submitting}
-                            className="w-full bg-red-600 text-white px-6 py-3 rounded-md hover:bg-red-700 transition-colors disabled:bg-gray-400 disabled:cursor-not-allowed"
-                        >
-                            {state.submitting ? 'Sending...' : 'Submit'}
-                        </button>
-                    </form>
+                    <img src="https://trimx.in/wp-content/uploads/2024/03/gayathri-about.jpg" />
                 </div>
             </div>
         </div>

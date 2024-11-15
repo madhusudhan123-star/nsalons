@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import deal1 from '../assets/deals.jpeg';
 
 const DealSlider = () => {
     const [startX, setStartX] = useState(null);
@@ -35,38 +36,34 @@ const DealSlider = () => {
 
     const deals = [
         {
-            title: "Special Offer",
-            price: "Rs. 149",
-            buttonText: "Book Now",
+            img: deal1,
         },
         {
-            title: "Premium Deal",
-            price: "Rs. 9,999",
-            buttonText: "Book Now",
+            img: deal1,
         },
         {
-            title: "Student Discount",
-            price: "Rs. 199",
-            buttonText: "Book Now",
+            img: deal1,
         },
         {
-            title: "Festival Special",
-            price: "Rs. 299",
-            buttonText: "Book Now",
+            img: deal1,
+        },
+        {
+            img: deal1,
+        },
+        {
+            img: deal1,
+        },
+        {
+            img: deal1,
+        },
+        {
+            img: deal1,
         }
     ];
 
     return (
         <div className="relative mx-auto px-4 py-8">
-            <h2 className="text-3xl font-bold text-center text-blue-600 mb-8">HOT DEALS</h2>
-
-            <button
-                onClick={() => scroll('left')}
-                className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white/80 p-2 rounded-full shadow-lg z-10 hover:bg-white"
-            >
-                <ChevronLeft className="w-6 h-6" />
-            </button>
-
+            <h2 className="text-4xl text-center text-black mb-8">HOT DEALS</h2>
             <div className="overflow-hidden">
                 <div
                     ref={sliderRef}
@@ -94,8 +91,8 @@ const DealSlider = () => {
                             key={index}
                             className="flex-shrink-0 w-72 bg-white rounded-lg shadow-md overflow-hidden"
                         >
-                            <div className="h-48 bg-blue-100 flex items-center justify-center">
-                                <div className="w-16 h-16 bg-blue-500 rounded-full"></div>
+                            <div className="h-72 bg-blue-100 flex items-center justify-center">
+                                <img src={deal.img} alt={index} />
                             </div>
                             <div className="p-4">
                             </div>
@@ -103,13 +100,6 @@ const DealSlider = () => {
                     ))}
                 </div>
             </div>
-
-            <button
-                onClick={() => scroll('right')}
-                className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white/80 p-2 rounded-full shadow-lg z-10 hover:bg-white"
-            >
-                <ChevronRight className="w-6 h-6" />
-            </button>
         </div>
     );
 };
