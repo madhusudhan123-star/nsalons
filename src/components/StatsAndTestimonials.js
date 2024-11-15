@@ -163,7 +163,7 @@ const StatsAndTestimonials = () => {
                     </div>
                 </div>
 
-                <div>
+                <div className='mt-44 sm:mt-0 '>
                     <h2 className="text-4xl font-bold text-blue-600 mb-6">TESTIMONIALS</h2>
                     <p className="text-gray-700 leading-relaxed">
                         Read through our cherished Customer Testimonials, where our gratitude meets transformation. These stories are a testament to the trust and satisfaction shared between us and our valued N Salons family.

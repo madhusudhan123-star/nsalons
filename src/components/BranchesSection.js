@@ -92,7 +92,9 @@ const BranchesSection = () => {
                                     <div className="absolute bottom-4 left-4 text-white">
                                         <h3 className="text-xl font-semibold mb-2">{branch.name}</h3>
                                         <button className="bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600 transition-colors">
-                                            Know More
+                                            <a href='/appointment'>
+                                                Book Appointment
+                                            </a>
                                         </button>
                                     </div>
                                 </div>
