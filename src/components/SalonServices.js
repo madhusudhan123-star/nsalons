@@ -65,10 +65,12 @@ const ServiceModal = ({ isOpen, onClose, serviceData }) => {
                                     <span className="text-gray-600">Regular:</span>
                                     <span className="font-bold ml-2">₹{treatment.nonMemberPrice}</span>
                                 </div>
-                                <div>
-                                    <span className="text-gray-600">Premium:</span>
-                                    <span className="font-bold ml-2">₹{treatment.memberPrice}</span>
-                                </div>
+                                {treatment.memberPrice > 0 && (
+                                    <div>
+                                        <span className="text-gray-600">Premium:</span>
+                                        <span className="font-bold ml-2">₹{treatment.memberPrice}</span>
+                                    </div>
+                                )}
                             </div>
 
                             <div className="flex justify-end">
