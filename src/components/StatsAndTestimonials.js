@@ -150,7 +150,7 @@ const StatsAndTestimonials = () => {
                     <div className="absolute -right-4 top-1/2 -translate-y-1/2 flex gap-2">
                         <button
                             onClick={prevVideo}
-                            className="bg-white p-2 rounded-full shadow-lg hover:bg-gray-100 transition-colors"
+                            className="bg-white p-2 rounded-full shadow-lg hovem,r:bg-gray-100 transition-colors"
                         >
                             <ChevronLeft size={24} className="text-gray-600" />
                         </button>

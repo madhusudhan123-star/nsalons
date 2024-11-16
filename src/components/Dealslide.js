@@ -1,6 +1,8 @@
 import React, { useState, useRef } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import deal1 from '../assets/deals.jpeg';
+import one from '../assets/deals/one.png';
+import two from '../assets/deals/two.png';
 
 const DealSlider = () => {
     const [startX, setStartX] = useState(null);
@@ -35,11 +37,12 @@ const DealSlider = () => {
     };
 
     const deals = [
+
         {
-            img: deal1,
+            img: one,
         },
         {
-            img: deal1,
+            img: two,
         },
         {
             img: deal1,

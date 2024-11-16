@@ -326,8 +326,10 @@ const Header = () => {
             <div className="pt-16">
                 <ImageSlider />
             </div>
-            <div className="text-center py-12">
-                <h2 className="text-5xl text-black font-bold">LOOK SHARP FEEL GOOD</h2>
+            <div>
+                <div className="text-center py-12 background_dots flex justify-center">
+                    <h2 className="text-5xl text-black font-bold bg-white">LOOK SHARP FEEL GOOD</h2>
+                </div>
             </div>
         </div>
     );

@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+
+.background_dots{ /* Light gray background */
+    background-image: radial-gradient(black 15%, transparent 19%);
+    background-size: 50px 50px; /* Adjust the size of dots */
+    background-repeat: repeat;    
+}

@@ -46,8 +46,8 @@ const Navbar = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
     return (
-        <>
-            <nav className="bg-black text-white py-4 px-6 shadow-md fixed w-full top-0 z-50">
+        <div>
+            <nav className="bg-black text-white py-4 px-16 shadow-md fixed w-full top-0 z-50">
                 <div className="container mx-auto flex items-center justify-between">
                     <a href='/'>
                         <div className="w-32">
@@ -76,7 +76,10 @@ const Navbar = () => {
                     </div>
                     <div className="flex lg:hidden items-center gap-2">
                         <button className="bg-[#3B5998] text-white px-4 py-2 text-sm rounded">
-                            BOOK
+                            <a href='/appointment'>
+                                BOOK
+
+                            </a>
                         </button>
                         <button onClick={() => setIsSideNavOpen(true)} className="p-2">
                             <Menu className="w-6 h-6 text-white" />
@@ -99,7 +102,7 @@ const Navbar = () => {
                 )}
             </nav>
             <SideNav isOpen={isSideNavOpen} onClose={() => setIsSideNavOpen(false)} />
-        </>
+        </div>
     );
 };
 
