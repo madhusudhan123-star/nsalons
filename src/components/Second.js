@@ -1,5 +1,6 @@
 import React from 'react';
 import { useForm, ValidationError } from '@formspree/react';
+import about from '../assets/about.jpeg'
 
 const Second = () => {
     const [state, handleSubmit] = useForm("manyjjpb");
@@ -34,7 +35,7 @@ const Second = () => {
 
                 {/* Right Section (Contact Form) */}
                 <div className="lg:w-2/5 flex flex-col items-center p-6  ">
-                    <img className='rounded' src="https://trimx.in/wp-content/uploads/2024/03/gayathri-about.jpg" />
+                    <img className='rounded' src={about} />
                 </div>
             </div>
         </div>

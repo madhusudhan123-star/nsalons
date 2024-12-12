@@ -7,8 +7,7 @@ const SideNav = ({ isOpen, onClose }) => {
     const menuItems = [
         { label: 'Home', href: '/' },
         { label: 'About Us', href: '/about' },
-        { label: 'Menu', href: '/menu' },
-        { label: 'Hot Deals', href: '/hot' },
+        { label: 'services', href: '/menu' },
         { label: 'Branches', href: '/branches' },
     ];
 
@@ -47,7 +46,7 @@ const Navbar = () => {
 
     return (
         <div>
-            <nav className="bg-black text-white py-4 px-16 shadow-md fixed w-full top-0 z-50">
+            <nav className="bg-black text-white py-4 px-1 lg:px:16 md:px:16 sm:px:1 shadow-md fixed w-full top-0 z-50">
                 <div className="container mx-auto flex items-center justify-between">
                     <a href='/'>
                         <div className="w-32">
@@ -59,7 +58,7 @@ const Navbar = () => {
                             <Phone size={20} />
                             <div>
                                 <div className="text-sm">Make a call</div>
-                                <div className="font-semibold">+91 709 770 9722</div>
+                                <div className="font-semibold">+91 709 770 9722/+91 910 026 9331</div>
                             </div>
                         </div>
                         <button className="bg-[#3B5998] text-white px-6 py-2 rounded">

@@ -1,50 +1,16 @@
 import React from 'react';
 import { MapPin, Phone, Clock } from 'lucide-react';
+import branch1 from '../assets/branch1.jpg';
 
 const Branches = () => {
     const branches = [
         {
-            name: "Pragathi Nagar, Hyderabad",
-            address: "Plot No. 8, Ground Floor, Pragathi Nagar Main Road, Hyderabad",
-            phone: "+91 9876543210",
+            name: "Begumpet, Hyderabad",
+            address: "shoppers stop, besides, lane, opposite to ramalayam, Telangana 500016",
+            phone: "+91 709 770 9722",
             hours: "10:00 AM - 9:00 PM",
-            image: "/api/placeholder/400/300"
+            image: branch1
         },
-        {
-            name: "DK Road, Ameerpet",
-            address: "Shop No. 4, DK Road, Near Metro Station, Ameerpet, Hyderabad",
-            phone: "+91 9876543211",
-            hours: "10:00 AM - 9:00 PM",
-            image: "/api/placeholder/400/300"
-        },
-        {
-            name: "Jubilee Hills",
-            address: "Road No. 36, Jubilee Hills, Near Checkpost, Hyderabad",
-            phone: "+91 9876543212",
-            hours: "10:00 AM - 9:00 PM",
-            image: "/api/placeholder/400/300"
-        },
-        {
-            name: "Madhapur",
-            address: "Plot 123, Beside Tech Park, Madhapur Main Road, Hyderabad",
-            phone: "+91 9876543213",
-            hours: "10:00 AM - 9:00 PM",
-            image: "/api/placeholder/400/300"
-        },
-        {
-            name: "Kukatpally",
-            address: "KPHB Phase 6, Near JNTU, Kukatpally, Hyderabad",
-            phone: "+91 9876543214",
-            hours: "10:00 AM - 9:00 PM",
-            image: "/api/placeholder/400/300"
-        },
-        {
-            name: "Gachibowli",
-            address: "DLF Cybercity, Gachibowli Main Road, Hyderabad",
-            phone: "+91 9876543215",
-            hours: "10:00 AM - 9:00 PM",
-            image: "/api/placeholder/400/300"
-        }
     ];
 
     return (

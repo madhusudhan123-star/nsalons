@@ -1,6 +1,7 @@
 {
   "name": "app",
   "version": "0.1.0",
+  "homepage": "http://nsalons.in/",
   "private": true,
   "dependencies": {
     "@formspree/react": "^2.5.1",

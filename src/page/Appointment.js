@@ -1,5 +1,5 @@
-// Appointment.js
-import React from 'react';
+import React from "react";
+import { useForm, ValidationError } from "@formspree/react";
 
 const AppointmentHeader = () => (
     <div className="flex flex-col md:flex-row items-center justify-between gap-4">
@@ -7,33 +7,57 @@ const AppointmentHeader = () => (
             Book your appointment here
         </h2>
         <p className="text-gray-300">
-            or call <span className="text-orange-500">709 770 9722</span> to book an appointment.
+            or call <span className="text-orange-500">+91 879 066 6095/+91 910 026 9331</span> to book an appointment.
         </p>
     </div>
 );
 
-const AppointmentForm = () => (
-    <div className="mt-4 flex flex-col md:flex-row gap-4">
-        {["Name*", "Mobile Number*"].map((placeholder, index) => (
-            <input
-                key={index}
-                type={placeholder === "Mobile Number*" ? "tel" : "text"}
-                placeholder={placeholder}
-                className="flex-1 p-2 bg-gray-800 border border-gray-700 rounded text-white placeholder-gray-400"
-            />
-        ))}
-        <input
-            type="date"
-            className="flex-1 p-2 bg-gray-800 border border-gray-700 rounded text-white placeholder-gray-400"
-        />
-    </div>
-);
+const AppointmentForm = () => {
+    const [state, handleSubmit] = useForm("mjkvzbgv");
 
-const AppointmentButton = () => (
-    <button className="w-full mt-4 bg-orange-500 text-white py-3 rounded hover:bg-orange-600 transition-colors">
-        Book an Appointment
-    </button>
-);
+    if (state.succeeded) {
+        return <p className="text-green-500 mt-4">Thanks for booking your appointment!</p>;
+    }
+
+    return (
+        <form onSubmit={handleSubmit} className="mt-4 flex flex-col gap-4">
+            {/* Name Input */}
+            <input
+                type="text"
+                name="name"
+                placeholder="Name*"
+                className="p-2 bg-gray-800 border border-gray-700 rounded text-white placeholder-gray-400"
+            />
+            <ValidationError prefix="Name" field="name" errors={state.errors} />
+
+            {/* Mobile Number Input */}
+            <input
+                type="tel"
+                name="mobile"
+                placeholder="Mobile Number*"
+                className="p-2 bg-gray-800 border border-gray-700 rounded text-white placeholder-gray-400"
+            />
+            <ValidationError prefix="Mobile" field="mobile" errors={state.errors} />
+
+            {/* Date Input */}
+            <input
+                type="date"
+                name="date"
+                className="p-2 bg-gray-800 border border-gray-700 rounded text-white placeholder-gray-400"
+            />
+            <ValidationError prefix="Date" field="date" errors={state.errors} />
+
+            {/* Submit Button */}
+            <button
+                type="submit"
+                disabled={state.submitting}
+                className="w-full bg-orange-500 text-white py-3 rounded hover:bg-orange-600 transition-colors"
+            >
+                Book an Appointment
+            </button>
+        </form>
+    );
+};
 
 const Appointment = () => {
     return (
@@ -41,7 +65,6 @@ const Appointment = () => {
             <div className="w-full max-w-4xl p-8 bg-gray-900 rounded-lg shadow-lg">
                 <AppointmentHeader />
                 <AppointmentForm />
-                <AppointmentButton />
             </div>
         </div>
     );

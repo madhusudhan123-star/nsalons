@@ -1,5 +1,6 @@
 import React from 'react';
 import { useForm } from '@formspree/react';
+import about from '../assets/about.jpeg';
 
 const Second = () => {
     const [state, handleSubmit] = useForm("manyjjpb");
@@ -41,7 +42,7 @@ const Second = () => {
                         {/* Image container with floating animation */}
                         <div className="relative animate-floating">
                             <img
-                                src="https://trimx.in/wp-content/uploads/2024/03/gayathri-about.jpg"
+                                src={about}
                                 alt="Salon Services"
                                 className="rounded-lg shadow-xl"
                             />

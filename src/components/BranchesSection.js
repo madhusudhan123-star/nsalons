@@ -1,26 +1,15 @@
 import React, { useState } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import branch1 from '../assets/branch1.jpg';
 
 const BranchesSection = () => {
     const [currentSlide, setCurrentSlide] = useState(0);
 
     const branches = [
         {
-            name: "Pragathi Nagar, Hyderabad",
-            image: "/path/to/pragathi-nagar.jpg"
-        },
-        {
-            name: "DK Road, Ameerpet",
-            image: "/path/to/dk-road.jpg"
-        },
-        {
-            name: "Jubilee Hills",
-            image: "/path/to/jubilee-hills.jpg"
-        },
-        {
-            name: "Madhapur",
-            image: "/path/to/madhapur.jpg"
-        },
+            name: "Begumpet, Hyderabad",
+            image: branch1
+        }
         // Add more branches as needed
     ];
 
@@ -70,7 +59,7 @@ const BranchesSection = () => {
                             <h2 className="text-4xl font-bold text-blue-600">BRANCHES</h2>
                             <p className="text-gray-600">35 already & growing</p>
                         </div>
-                        <a href="#" className="text-blue-600 hover:underline flex items-center gap-2">
+                        <a href="/branches" className="text-blue-600 hover:underline flex items-center gap-2">
                             VIEW ALL
                             <ChevronRight size={20} />
                         </a>

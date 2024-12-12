@@ -83,7 +83,9 @@ const ServiceModal = ({ isOpen, onClose, serviceData }) => {
 
                             <div className="flex justify-end">
                                 <button className="bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600 transition-colors">
-                                    BOOK NOW
+                                    <a href='/appointment'>
+                                        BOOK NOW
+                                    </a>
                                 </button>
                             </div>
                         </div>
@@ -286,19 +288,19 @@ const Menu = () => {
                 {
                     name: "Hair Spa",
                     description: "For Men",
-                    nonMemberPrice: 500,
-                    memberPrice: 700
+                    nonMemberPrice: 700,
+                    memberPrice: 1000
                 },
                 {
                     name: "Anti",
                     description: "For Men Dandruff/Hair Fall / Dry hair",
-                    nonMemberPrice: 700,
+                    nonMemberPrice: 1000,
                 },
                 {
                     name: "Hair Spa",
                     description: "For Women",
                     nonMemberPrice: 1200,
-                    memberPrice: 1400
+                    memberPrice: 1500
                 },
                 {
                     name: "Head Massage",
@@ -410,7 +412,7 @@ const Menu = () => {
                 {
                     name: "Clean Up - O3",
                     description: "For Men",
-                    nonMemberPrice: 800,
+                    nonMemberPrice: 1000,
                 },
                 {
                     name: "signature express cleanup",
@@ -436,17 +438,17 @@ const Menu = () => {
                 {
                     name: "Whitening Brightening",
                     description: "Removes Tan & Deep Cleansing For A Vibrant Look",
-                    nonMemberPrice: 1600,
+                    nonMemberPrice: 2200,
                 },
                 {
                     name: "O3 Signature",
                     description: "Boosts Radiance For Multiple Skin Concern",
-                    nonMemberPrice: 2200,
+                    nonMemberPrice: 2500,
                 },
                 {
                     name: "Anti Ageing",
                     description: "Moisturizes Dehydrated Skin And Tightens Skin",
-                    nonMemberPrice: 2200,
+                    nonMemberPrice: 1600,
                 },
                 {
                     name: "Gold Moroccan",
@@ -466,7 +468,7 @@ const Menu = () => {
                 {
                     name: "Signature Facial White",
                     description: "Brightening/insta fair",
-                    nonMemberPrice: 2000,
+                    nonMemberPrice: 2500,
                 },
                 {
                     name: "Signature Facial Anti Aging",
@@ -648,15 +650,27 @@ const Menu = () => {
             description: "Precise threading services for facial hair removal.",
             treatments: [
                 {
-                    name: "Upper lip & Eyebrows",
+                    name: "Upper lip",
                     description: "Basic threading service",
                     nonMemberPrice: 50,
                     womenPrice: 80,
                 },
                 {
-                    name: "CHIN/Forhead",
+                    name: "Eyebrows",
+                    description: "Basic threading service",
+                    nonMemberPrice: 50,
+                    womenPrice: 80,
+                },
+                {
+                    name: "CHIN",
                     description: "Facial threading",
                     nonMemberPrice: 80,
+                    womenPrice: 80,
+                },
+                {
+                    name: "Forhead",
+                    description: "Facial threading",
+                    nonMemberPrice: 50,
                     womenPrice: 80,
                 },
                 {

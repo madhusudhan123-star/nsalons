@@ -1,68 +1,55 @@
-import React, { useState, useRef } from 'react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
-import deal1 from '../assets/deals.jpeg';
+import React, { useRef, useEffect } from 'react';
 import one from '../assets/deals/one.png';
 import two from '../assets/deals/two.png';
 
 const DealSlider = () => {
-    const [startX, setStartX] = useState(null);
-    const [scrollLeft, setScrollLeft] = useState(0);
-    const [isDragging, setIsDragging] = useState(false);
     const sliderRef = useRef(null);
-
-    const handleMouseDown = (e) => {
-        setIsDragging(true);
-        setStartX(e.pageX - sliderRef.current.offsetLeft);
-        setScrollLeft(sliderRef.current.scrollLeft);
-    };
-
-    const handleMouseMove = (e) => {
-        if (!isDragging) return;
-        e.preventDefault();
-        const x = e.pageX - sliderRef.current.offsetLeft;
-        const walk = (x - startX) * 2;
-        sliderRef.current.scrollLeft = scrollLeft - walk;
-    };
-
-    const handleMouseUpAndLeave = () => {
-        setIsDragging(false);
-    };
-
-    const scroll = (direction) => {
-        const { current } = sliderRef;
-        if (current) {
-            const scrollAmount = direction === 'left' ? -300 : 300;
-            current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-        }
-    };
+    const autoPlayRef = useRef(null);
 
     const deals = [
-
-        {
-            img: one,
-        },
-        {
-            img: two,
-        },
-        {
-            img: deal1,
-        },
-        {
-            img: deal1,
-        },
-        {
-            img: deal1,
-        },
-        {
-            img: deal1,
-        },
-        {
-            img: deal1,
-        },
-        {
-            img: deal1,
-        }
+        { img: one },
+        { img: two },
+        { img: one },
+        { img: two },
+        { img: one },
+        { img: two },
+        { img: one },
+        { img: two }
     ];
+
+    useEffect(() => {
+        const slider = sliderRef.current;
+        let position = 0;
+
+        const autoPlay = () => {
+            if (slider) {
+                // Calculate the maximum scroll position
+                const maxScroll = slider.scrollWidth - slider.clientWidth;
+
+                // If we're at the end, smoothly return to start
+                if (position >= maxScroll) {
+                    position = 0;
+                    slider.scrollTo({
+                        left: 0,
+                        behavior: 'smooth'
+                    });
+                } else {
+                    // Increment position by a smaller amount for smoother motion
+                    position += 1;
+                    slider.scrollLeft = position;
+                }
+            }
+        };
+
+        // Use a shorter interval for smoother animation
+        autoPlayRef.current = setInterval(autoPlay, 16); // Approximately 60fps
+
+        return () => {
+            if (autoPlayRef.current) {
+                clearInterval(autoPlayRef.current);
+            }
+        };
+    }, []);
 
     return (
         <div className="relative mx-auto px-4 py-8">
@@ -70,34 +57,31 @@ const DealSlider = () => {
             <div className="overflow-hidden">
                 <div
                     ref={sliderRef}
-                    className="flex gap-6 overflow-x-scroll scroll-smooth"
+                    className="flex gap-6 overflow-x-scroll transition-all duration-500 ease-linear pointer-events-none"
                     style={{
-                        cursor: isDragging ? 'grabbing' : 'grab',
-                        userSelect: 'none',
-                        msOverflowStyle: 'none',  /* IE and Edge */
-                        scrollbarWidth: 'none',   /* Firefox */
+                        scrollbarWidth: 'none',
+                        msOverflowStyle: 'none',
                         WebkitOverflowScrolling: 'touch',
                     }}
-                    onMouseDown={handleMouseDown}
-                    onMouseMove={handleMouseMove}
-                    onMouseUp={handleMouseUpAndLeave}
-                    onMouseLeave={handleMouseUpAndLeave}
                 >
                     <style jsx>{`
-            div::-webkit-scrollbar {
-              display: none;
-            }
-          `}</style>
+                        div::-webkit-scrollbar {
+                            display: none;
+                        }
+                    `}</style>
 
                     {deals.map((deal, index) => (
                         <div
                             key={index}
-                            className="flex-shrink-0 w-72 bg-white rounded-lg shadow-md overflow-hidden"
+                            className="flex-shrink-0 w-72 overflow-hidden"
                         >
-                            <div className="h-72 bg-blue-100 flex items-center justify-center">
-                                <img src={deal.img} alt={index} />
-                            </div>
-                            <div className="p-4">
+                            <div className="h-[100%] flex items-center justify-center">
+                                <img
+                                    className='h-full w-full object-cover'
+                                    src={deal.img}
+                                    alt={`Deal ${index + 1}`}
+                                    draggable="false"
+                                />
                             </div>
                         </div>
                     ))}

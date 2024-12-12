@@ -75,7 +75,9 @@ const ServiceModal = ({ isOpen, onClose, serviceData }) => {
 
                             <div className="flex justify-end">
                                 <button className="bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600 transition-colors">
-                                    BOOK NOW
+                                    <a href='/appointment'>
+                                        BOOK NOW
+                                    </a>
                                 </button>
                             </div>
                         </div>
@@ -152,7 +154,7 @@ const SalonServices = () => {
                 {
                     name: "Shave",
                     description: "For Men Full shave",
-                    nonMemberPrice: 99,
+                    nonMemberPrice: 120,
                 },
                 {
                     name: "Beard Trim",
@@ -212,12 +214,12 @@ const SalonServices = () => {
                 },
                 {
                     name: "Root Touch",
-                    description: "For Women (up -majirel)",
+                    description: "For Women",
                     nonMemberPrice: 800,
                 },
                 {
                     name: "Root Touch",
-                    description: "For Women (up -inoa)",
+                    description: "For Women (only one)",
                     nonMemberPrice: 1000,
                 },
                 {

@@ -1,5 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { ChevronLeft, ChevronRight, ThumbsUp, Store, Users, UserCircle, Star } from 'lucide-react';
+import video5 from '../assets/video5.mp4';
+import video6 from '../assets/video6.mp4';
+import video7 from '../assets/video7.mp4';
+import video8 from '../assets/video8.mp4';
+import video9 from '../assets/video9.mp4';
 
 const AnimatedCounter = ({ end, duration = 2000, suffix = '' }) => {
     const [count, setCount] = useState(0);
@@ -73,9 +78,11 @@ const VideoTestimonial = ({ videoSrc, isActive }) => {
         <div className={`w-full transition-opacity duration-300 ${isActive ? 'opacity-100' : 'opacity-0'}`}>
             <video
                 ref={videoRef}
-                className="w-full rounded-lg"
+                className=" w-screen rounded-lg h-80"
                 controls
-                poster="/path/to/poster-image.jpg"
+                autoPlay
+                loop
+                muted
             >
                 <source src={videoSrc} type="video/mp4" />
                 Your browser does not support the video tag.
@@ -83,6 +90,7 @@ const VideoTestimonial = ({ videoSrc, isActive }) => {
         </div>
     );
 };
+
 
 const StatsAndTestimonials = () => {
     const [currentVideo, setCurrentVideo] = useState(0);
@@ -92,19 +100,15 @@ const StatsAndTestimonials = () => {
         { icon: Store, value: 35, suffix: '', label: 'Salons and Growing' },
         { icon: Users, value: 103000, suffix: '+', label: 'Happy Members' },
         { icon: UserCircle, value: 125, suffix: '', label: 'Team Members' },
-        { icon: Star, value: 4.9, suffix: '', label: 'Google Rating' }
+        { icon: Star, value: 4.9, suffix: '', label: 'Google Rating' },
     ];
 
     const testimonials = [
-        {
-            videoSrc: '/path/to/testimonial1.mp4',
-            title: "India's No.1 Men Salon Chain!"
-        },
-        {
-            videoSrc: '/path/to/testimonial2.mp4',
-            title: "Customer Experience"
-        },
-        // Add more testimonials as needed
+        { videoSrc: video5 },
+        { videoSrc: video6 },
+        { videoSrc: video7 },
+        { videoSrc: video8 },
+        { videoSrc: video9 },
     ];
 
     const nextVideo = () => {
@@ -116,7 +120,7 @@ const StatsAndTestimonials = () => {
     };
 
     return (
-        <div className="max-w-7xl mx-auto px-4 py-16 pb-60">
+        <div className="max-w-7xl mx-auto px-4 py-16 pb-72">
             {/* Stats Section */}
             <div className="grid grid-cols-2 md:grid-cols-5 gap-8 mb-20">
                 {stats.map((stat, index) => (
@@ -150,7 +154,7 @@ const StatsAndTestimonials = () => {
                     <div className="absolute -right-4 top-1/2 -translate-y-1/2 flex gap-2">
                         <button
                             onClick={prevVideo}
-                            className="bg-white p-2 rounded-full shadow-lg hovem,r:bg-gray-100 transition-colors"
+                            className="bg-white p-2 rounded-full shadow-lg hover:bg-gray-100 transition-colors"
                         >
                             <ChevronLeft size={24} className="text-gray-600" />
                         </button>
@@ -163,15 +167,18 @@ const StatsAndTestimonials = () => {
                     </div>
                 </div>
 
-                <div className='mt-44 sm:mt-0 '>
+                <div className="mt-80 sm:mt-0 sm:mt-0">
                     <h2 className="text-4xl font-bold text-blue-600 mb-6">TESTIMONIALS</h2>
                     <p className="text-gray-700 leading-relaxed">
-                        Read through our cherished Customer Testimonials, where our gratitude meets transformation. These stories are a testament to the trust and satisfaction shared between us and our valued N Salons family.
+                        Read through our cherished Customer Testimonials, where our gratitude meets transformation.
+                        These stories are a testament to the trust and satisfaction shared between us and our valued
+                        N Salons family.
                     </p>
                 </div>
             </div>
         </div>
     );
 };
+
 
 export default StatsAndTestimonials;
