@@ -15,8 +15,8 @@ const MultiBannerCarousel = () => {
             title: "WELCOME TO N SALONS",
             description: "Experience premium hair care services tailored to your unique style and preferences. Our expert stylists are ready to transform your look.",
             bgImage: slide1,
-            position: "items-start justify-center text-center pl-72 ", // Left aligned
-            left:true
+            position: "items-start justify-center text-center sm:pl-16 md:pl-36 lg:pl-72", // Responsive left alignment
+            left: true
         },
         {
             // title: "RADIANT REVIVAL",
@@ -28,13 +28,13 @@ const MultiBannerCarousel = () => {
             title: "MAKEUP PERFECTION",
             description: "Enhance your beauty with our expert touch, from flawless everyday looks to glamorous transformations.",
             bgImage: slide3,
-            position: "items-center justify-end text-center pb-16" // Bottom centered
+            position: "items-center justify-end text-center sm:pb-8 md:pb-12 lg:pb-16" // Responsive bottom centered
         },
         {
             title: "SPECIAL OFFERS",
             description: "Enjoy exclusive discounts and packages on our premium salon services. Limited time offers available now!",
             bgImage: slide4,
-            position: "items-center justify-start text-center" // Top centered
+            position: "items-center justify-start text-center pt-4 sm:pt-6 md:pt-8" // Responsive top centered
         }
     ];
 
@@ -57,7 +57,7 @@ const MultiBannerCarousel = () => {
 
     return (
         <div className="bg-black py-4 sm:py-10">
-            <div className="container mx-auto">
+            <div className="container mx-auto px-4">
                 <div className="relative h-[300px] sm:h-[400px] md:h-[550px]">
                     {banners.map((banner, index) => (
                         <div
@@ -65,22 +65,25 @@ const MultiBannerCarousel = () => {
                             className={`w-full h-full rounded-2xl overflow-hidden absolute transition-opacity duration-500 ${
                                 index === currentBanner ? "opacity-100 z-10" : "opacity-0 z-0"
                             }`}
-                            style={{
-                                backgroundImage: `url(${banner.bgImage})`,
-                                backgroundSize: 'cover',
-                                backgroundPosition: 'center'
-                            }}
                         >
+                            {/* Background image with proper responsive handling */}
+                            <div 
+                                className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
+                                style={{
+                                    backgroundImage: `url(${banner.bgImage})`,
+                                }}
+                            ></div>
+                            
                             {/* Overlay for better text readability */}
                             <div className="absolute inset-0 bg-black opacity-30"></div>
                             
-                            {/* Content overlay with dynamic positioning */}
-                            <div className={`absolute inset-0 flex flex-col ${banner.position}`}>
+                            {/* Content overlay with responsive dynamic positioning */}
+                            <div className={`absolute inset-0 flex flex-col p-4 sm:p-6 md:p-8 ${banner.position}`}>
                                 {banner.title && (
-                                    <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-white mb-2 sm:mb-4 md:mb-6">{banner.title}</h2>
+                                    <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-white mb-2 sm:mb-4 md:mb-6 px-2">{banner.title}</h2>
                                 )}
                                 {banner.description && (
-                                    <p className={`text-white text-sm sm:text-lg md:text-xl max-w-[250px] sm:max-w-[350px] md:max-w-md leading-relaxed ${banner.left ? 'ml-16' : 'ml-0'}`}>
+                                    <p className={`text-white text-sm sm:text-lg md:text-xl max-w-[250px] sm:max-w-[350px] md:max-w-md leading-relaxed px-4 ${banner.left ? 'sm:ml-8 md:ml-16' : ''}`}>
                                         {banner.description}
                                     </p>
                                 )}
