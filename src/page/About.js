@@ -1,6 +1,6 @@
 import React from 'react';
 import { useForm } from '@formspree/react';
-import about from '../assets/about.jpeg';
+import about from '../assets/nsalonabout.jpeg';
 
 const Second = () => {
     const [state, handleSubmit] = useForm("manyjjpb");

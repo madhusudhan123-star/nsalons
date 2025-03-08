@@ -19,9 +19,9 @@ const Home = () => {
     return (
         <div>
             <Header />
+            <Second />
             <ReviewSection />
             <SalonServices />
-            <Second />
             <StatsAndTestimonials />
             {/* {headerLoaded && (
                 <>

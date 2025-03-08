@@ -46,11 +46,11 @@ const Navbar = () => {
 
     return (
         <div>
-            <nav className="bg-black text-white py-4 px-1 lg:px:16 md:px:16 sm:px:1 shadow-md fixed w-full top-0 z-50">
+            <nav className="bg-black text-white py-4 px-10 lg:px:16 md:px:16 sm:px-1 shadow-md fixed w-full top-0 z-50">
                 <div className="container mx-auto flex items-center justify-between">
                     <a href='/'>
                         <div className="w-32">
-                            <img src={logo} alt="TRIM X" className="h-8" />
+                            <img src={logo} alt="TRIM X" className="h-16" />
                         </div>
                     </a>
                     <div className="hidden lg:flex items-center gap-4">

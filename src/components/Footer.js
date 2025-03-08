@@ -58,7 +58,7 @@ const Footer = () => {
                         <h3 className="text-lg font-semibold mb-4">Contact Us</h3>
                         <ul className="space-y-4">
                             <li className="flex items-center space-x-3">
-                                <MapPin size={20} className="text-white" />
+                                <MapPin size={40} className="text-white" />
                                 <span className="text-sm">shoppers stop, besides, lane, opposite to ramalayam, Begumpet, Hyderabad, Telangana</span>
                             </li>
                             <li className="flex items-center space-x-3">
