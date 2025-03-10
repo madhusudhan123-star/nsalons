@@ -68,7 +68,7 @@ const MultiBannerCarousel = () => {
                         >
                             {/* Background image with proper responsive handling */}
                             <div 
-                                className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
+                                className="absolute inset-0 w-full h-full bg-contain bg-center bg-no-repeat"
                                 style={{
                                     backgroundImage: `url(${banner.bgImage})`,
                                 }}
