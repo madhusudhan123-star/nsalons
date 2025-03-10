@@ -5,9 +5,24 @@ import slide1 from '../assets/slide1.jpg';
 import slide2 from '../assets/slide2.jpg';
 import slide3 from '../assets/slide3.jpg';
 import slide4 from '../assets/slide4.jpg';
+import mobileSlide1 from '../assets/nsalonmob1.jpg';
+import mobileSlide2 from '../assets/nsalonmob2.jpg';
+import mobileSlide3 from '../assets/nsalonmob3.jpg';
+import mobileSlide4 from '../assets/nsalonmob3.jpg';
 
 const MultiBannerCarousel = () => {
     const [currentBanner, setCurrentBanner] = useState(0);
+    const [isMobile, setIsMobile] = useState(window.innerWidth < 640);
+    
+    // Check for mobile viewport on resize
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth < 640);
+        };
+        
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
     
     // Array of banners with different content
     const banners = [
@@ -15,6 +30,7 @@ const MultiBannerCarousel = () => {
             title: "WELCOME TO N SALONS",
             description: "Experience premium hair care services tailored to your unique style and preferences. Our expert stylists are ready to transform your look.",
             bgImage: slide1,
+            mobileImage: mobileSlide1,
             position: "items-start justify-center text-center sm:pl-16 md:pl-36 lg:pl-72", // Responsive left alignment
             left: true
         },
@@ -22,18 +38,21 @@ const MultiBannerCarousel = () => {
             // title: "RADIANT REVIVAL",
             // description: "Refresh and restore your skin with our specialized care, designed to bring out your natural glow.",
             bgImage: slide2,
+            mobileImage: mobileSlide2,
             // position: "items-end justify-center text-right pr-16 pl-64" // Right aligned
         },
         {
             title: "MAKEUP PERFECTION",
             description: "Enhance your beauty with our expert touch, from flawless everyday looks to glamorous transformations.",
             bgImage: slide3,
+            mobileImage: mobileSlide3,
             position: "items-center justify-end text-center sm:pb-8 md:pb-12 lg:pb-16" // Responsive bottom centered
         },
         {
             title: "SPECIAL OFFERS",
             description: "Enjoy exclusive discounts and packages on our premium salon services. Limited time offers available now!",
             bgImage: slide4,
+            mobileImage: mobileSlide4,
             position: "items-center justify-start text-center pt-4 sm:pt-6 md:pt-8" // Responsive top centered
         }
     ];
@@ -58,7 +77,7 @@ const MultiBannerCarousel = () => {
     return (
         <div className="bg-black py-4 sm:py-10">
             <div className="container mx-auto px-4">
-                <div className="relative h-[300px] sm:h-[400px] md:h-[550px]">
+                <div className="relative h-[90vh] sm:h-[400px] md:h-[550px]">
                     {banners.map((banner, index) => (
                         <div
                             key={index}
@@ -70,7 +89,7 @@ const MultiBannerCarousel = () => {
                             <div 
                                 className="absolute inset-0 w-full h-full bg-contain bg-center bg-no-repeat"
                                 style={{
-                                    backgroundImage: `url(${banner.bgImage})`,
+                                    backgroundImage: `url(${isMobile ? banner.mobileImage : banner.bgImage})`,
                                 }}
                             ></div>
                             
@@ -79,10 +98,10 @@ const MultiBannerCarousel = () => {
                             
                             {/* Content overlay with responsive dynamic positioning */}
                             <div className={`absolute inset-0 flex flex-col p-4 sm:p-6 md:p-8 ${banner.position}`}>
-                                {banner.title && (
+                                {banner.title && (!isMobile || index !== 0) && (
                                     <h2 className="text-lg sm:text-3xl md:text-5xl font-bold text-white mb-2 sm:mb-4 md:mb-6 px-2">{banner.title}</h2>
                                 )}
-                                {banner.description && (
+                                {banner.description && (!isMobile || index !== 0) && (
                                     <p className={`text-white text-xs sm:text-base md:text-xl max-w-[250px] sm:max-w-[350px] md:max-w-md leading-relaxed px-4 ${banner.left ? 'sm:ml-8 md:ml-16' : ''}`}>
                                         {banner.description}
                                     </p>
