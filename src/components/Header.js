@@ -80,10 +80,10 @@ const MultiBannerCarousel = () => {
                             {/* Content overlay with responsive dynamic positioning */}
                             <div className={`absolute inset-0 flex flex-col p-4 sm:p-6 md:p-8 ${banner.position}`}>
                                 {banner.title && (
-                                    <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-white mb-2 sm:mb-4 md:mb-6 px-2">{banner.title}</h2>
+                                    <h2 className="text-lg sm:text-3xl md:text-5xl font-bold text-white mb-2 sm:mb-4 md:mb-6 px-2">{banner.title}</h2>
                                 )}
                                 {banner.description && (
-                                    <p className={`text-white text-sm sm:text-lg md:text-xl max-w-[250px] sm:max-w-[350px] md:max-w-md leading-relaxed px-4 ${banner.left ? 'sm:ml-8 md:ml-16' : ''}`}>
+                                    <p className={`text-white text-xs sm:text-base md:text-xl max-w-[250px] sm:max-w-[350px] md:max-w-md leading-relaxed px-4 ${banner.left ? 'sm:ml-8 md:ml-16' : ''}`}>
                                         {banner.description}
                                     </p>
                                 )}
@@ -97,7 +97,7 @@ const MultiBannerCarousel = () => {
                         className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-20 bg-white/30 hover:bg-white/50 rounded-full p-1 sm:p-2 transition-colors"
                         aria-label="Previous slide"
                     >
-                        <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+                        <ChevronLeft className="w-4 h-4 sm:w-6 sm:h-6 text-white" />
                     </button>
                     
                     <button 
@@ -105,7 +105,7 @@ const MultiBannerCarousel = () => {
                         className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-20 bg-white/30 hover:bg-white/50 rounded-full p-1 sm:p-2 transition-colors"
                         aria-label="Next slide"
                     >
-                        <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+                        <ChevronRight className="w-4 h-4 sm:w-6 sm:h-6 text-white" />
                     </button>
                     
                     {/* Slide indicators */}
