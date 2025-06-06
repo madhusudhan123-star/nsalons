@@ -27,6 +27,13 @@ const MultiBannerCarousel = () => {
     // Array of banners with different content
     const banners = [
         {
+            title: "MAKEUP PERFECTION",
+            description: "Enhance your beauty with our expert touch, from flawless everyday looks to glamorous transformations.",
+            bgImage: slide3,
+            mobileImage: mobileSlide3,
+            position: "items-center justify-end text-center sm:pb-8 md:pb-12 lg:pb-16" // Responsive bottom centered
+        },
+        {
             title: "WELCOME TO N SALONS",
             description: "Experience premium hair care services tailored to your unique style and preferences. Our expert stylists are ready to transform your look.",
             bgImage: slide1,
@@ -35,25 +42,18 @@ const MultiBannerCarousel = () => {
             left: true
         },
         {
-            // title: "RADIANT REVIVAL",
-            // description: "Refresh and restore your skin with our specialized care, designed to bring out your natural glow.",
-            bgImage: slide2,
-            mobileImage: mobileSlide2,
-            // position: "items-end justify-center text-right pr-16 pl-64" // Right aligned
-        },
-        {
-            title: "MAKEUP PERFECTION",
-            description: "Enhance your beauty with our expert touch, from flawless everyday looks to glamorous transformations.",
-            bgImage: slide3,
-            mobileImage: mobileSlide3,
-            position: "items-center justify-end text-center sm:pb-8 md:pb-12 lg:pb-16" // Responsive bottom centered
-        },
-        {
             title: "SPECIAL OFFERS",
             description: "Enjoy exclusive discounts and packages on our premium salon services. Limited time offers available now!",
             bgImage: slide4,
             mobileImage: mobileSlide4,
             position: "items-center justify-start text-center pt-4 sm:pt-6 md:pt-8" // Responsive top centered
+        },
+        {
+            // title: "RADIANT REVIVAL",
+            // description: "Refresh and restore your skin with our specialized care, designed to bring out your natural glow.",
+            bgImage: slide2,
+            mobileImage: mobileSlide2,
+            // position: "items-end justify-center text-right pr-16 pl-64" // Right aligned
         }
     ];
 

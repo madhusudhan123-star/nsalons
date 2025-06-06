@@ -8,6 +8,7 @@ const SideNav = ({ isOpen, onClose }) => {
         { label: 'Home', href: '/' },
         { label: 'About Us', href: '/about' },
         { label: 'Services', href: '/menu' },
+        { label: 'Gallery', href: '/gallery' },
         { label: 'Branches', href: '/branches' },
     ];
 
@@ -48,6 +49,7 @@ const Navbar = () => {
         { label: 'Home', href: '/' },
         { label: 'About Us', href: '/about' },
         { label: 'Services', href: '/menu' },
+        { label: 'Gallery', href: '/gallery' },
         { label: 'Branches', href: '/branches' },
     ];
 

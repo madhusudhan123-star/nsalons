@@ -144,11 +144,11 @@ const ReviewSection = () => {
     );
 
     return (
-        <div className="w-full bg-black py-12">
+        <div className="w-full bg-black pb-12">
             <BookingForm />
 
             {/* Google Reviews Section */}
-            <div className="max-w-6xl mx-auto p-8">
+            <div className="max-w-6xl mx-auto px-8">
                 <div className="text-center mb-12">
                     <h2 className="text-3xl font-bold text-white mb-4">What Our Customers Say</h2>
                     <p className="text-gray-400">Real reviews from our valued customers on Google</p>

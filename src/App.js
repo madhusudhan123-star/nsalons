@@ -7,6 +7,7 @@ import Appointment from './page/Appointment';
 import About from './page/About';
 import Menu from './page/Menu';
 import Branches from './page/Branches';
+import  Gallery  from './page/Gallery';
 
 // Loading Spinner Component
 const LoadingSpinner = () => (
@@ -41,6 +42,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/menu" element={<Menu />} />
           <Route path="/branches" element={<Branches />} />
+          <Route path="/gallery" element={<Gallery />} />
           <Route path="*" element={<h1>Page Not Found</h1>} />
         </Routes>
       </BrowserRouter>

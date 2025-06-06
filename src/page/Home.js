@@ -5,6 +5,7 @@ import Second from "../components/Second";
 import ReviewSection from "../components/ReviewSection";
 import SalonServices from "../components/SalonServices";
 import StatsAndTestimonials from "../components/StatsAndTestimonials";
+import Insta from "../components/Insta";
 
 const Home = () => {
     const [headerLoaded, setHeaderLoaded] = useState(false);
@@ -23,10 +24,7 @@ const Home = () => {
             <ReviewSection />
             <SalonServices />
             <StatsAndTestimonials />
-            {/* {headerLoaded && (
-                <>
-                </>
-            )} */}
+            <Insta />
         </div>
     );
 };
