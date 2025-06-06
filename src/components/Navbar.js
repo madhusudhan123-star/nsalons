@@ -7,7 +7,7 @@ const SideNav = ({ isOpen, onClose }) => {
     const menuItems = [
         { label: 'Home', href: '/' },
         { label: 'About Us', href: '/about' },
-        { label: 'services', href: '/menu' },
+        { label: 'Services', href: '/menu' },
         { label: 'Branches', href: '/branches' },
     ];
 
@@ -44,40 +44,58 @@ const Navbar = () => {
     const [isSideNavOpen, setIsSideNavOpen] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
+    const menuItems = [
+        { label: 'Home', href: '/' },
+        { label: 'About Us', href: '/about' },
+        { label: 'Services', href: '/menu' },
+        { label: 'Branches', href: '/branches' },
+    ];
+
     return (
         <div>
-            <nav className="bg-black text-white py-4 px-10 lg:px:16 md:px:16 sm:px-1 shadow-md fixed w-full top-0 z-50">
+            <nav className="bg-black text-white py-4 px-10 lg:px-16 md:px-16 sm:px-4 shadow-md fixed w-full top-0 z-50">
                 <div className="container mx-auto flex items-center justify-between">
+                    {/* Logo */}
                     <a href='/'>
                         <div className="w-32">
                             <img src={logo} alt="TRIM X" className="h-16" />
                         </div>
                     </a>
+
+                    {/* Desktop Menu - Horizontal */}
+                    <div className="hidden lg:flex items-center space-x-8">
+                        {menuItems.map((item, index) => (
+                            <a
+                                key={index}
+                                href={item.href}
+                                className="text-white hover:text-[#3B5998] transition-colors duration-200 font-medium"
+                            >
+                                {item.label}
+                            </a>
+                        ))}
+                    </div>
+
+                    {/* Right side items */}
                     <div className="hidden lg:flex items-center gap-4">
-                        <div className="hidden lg:flex items-center gap-2 ">
+                        <div className="hidden lg:flex items-center gap-2">
                             <Phone size={20} />
                             <div>
                                 <div className="text-sm">Make a call</div>
                                 <div className="font-semibold">+91 709 770 9722/+91 910 026 9331</div>
                             </div>
                         </div>
-                        <button className="bg-[#3B5998] text-white px-6 py-2 rounded">
+                        <button className="bg-[#3B5998] text-white px-6 py-2 rounded hover:bg-[#2d4373] transition-colors">
                             <a href='/appointment'>
                                 BOOK AN APPOINTMENT
                             </a>
                         </button>
-                        <button
-                            onClick={() => setIsSideNavOpen(true)}
-                            className="p-2 hover:bg-gray-100 rounded"
-                        >
-                            <Menu className="w-6 h-6 text-gray-600" />
-                        </button>
                     </div>
+
+                    {/* Mobile menu button */}
                     <div className="flex lg:hidden items-center gap-2">
                         <button className="bg-[#3B5998] text-white px-4 py-2 text-sm rounded">
                             <a href='/appointment'>
                                 BOOK
-
                             </a>
                         </button>
                         <button onClick={() => setIsSideNavOpen(true)} className="p-2">

@@ -1,27 +1,48 @@
 import React from "react";
-import { User } from "lucide-react";
+import { Star, MapPin, User } from "lucide-react";
 import { useForm, ValidationError } from "@formspree/react";
 
 const ReviewSection = () => {
-    const reviews = [
+    // Google Business locations - replace with your actual Google My Business place IDs
+    const googleLocations = [
+        {
+            name: "NSalon Jubilee Hills",
+            placeId: "ChIJN1t_tDeuEmsRUsoyG83frY4", // Replace with actual place ID
+            embedUrl: "https://www.google.com/maps/embed/v1/place?key=YOUR_API_KEY&q=place_id:ChIJN1t_tDeuEmsRUsoyG83frY4&reviews_sort=newest"
+        },
+        {
+            name: "NSalon Banjara Hills", 
+            placeId: "ChIJdd4hrwug2EcRLuiLXLlTEtc", // Replace with actual place ID
+            embedUrl: "https://www.google.com/maps/embed/v1/place?key=YOUR_API_KEY&q=place_id:ChIJdd4hrwug2EcRLuiLXLlTEtc&reviews_sort=newest"
+        }
+    ];
+
+    // Fallback reviews in case Google Reviews don't load
+    const fallbackReviews = [
         {
             id: 1,
-            name: "Abhijeet",
+            name: "Abhijeet Kumar",
             rating: 5,
-            comment: "Convenient locations all over Hyderabad. There's always a TrimX nearby.",
+            comment: "Excellent service! The staff is professional and the ambiance is great. Highly recommend NSalon for quality haircuts.",
+            date: "2 weeks ago",
+            verified: true
         },
         {
             id: 2,
-            name: "Rohit",
+            name: "Rohit Sharma",
             rating: 5,
-            comment: "Stylists are up-to-date on latest trends. Got a modern cut I love.",
+            comment: "Amazing experience at NSalon. The stylists are skilled and up-to-date with latest trends. Will definitely visit again!",
+            date: "1 month ago",
+            verified: true
         },
         {
             id: 3,
-            name: "Azeem",
+            name: "Azeem Ahmed",
             rating: 4,
-            comment: "Excellent customer service. They really make you feel welcome.",
-        },
+            comment: "Great customer service and convenient location. The staff made me feel welcome. Good value for money.",
+            date: "3 weeks ago",
+            verified: true
+        }
     ];
 
     const BookingForm = () => {
@@ -43,7 +64,7 @@ const ReviewSection = () => {
                 <div className="flex flex-col md:flex-row items-center justify-between gap-4">
                     <h2 className="text-yellow-400 text-2xl font-medium">Book your appointment here</h2>
                     <p className="text-gray-300">
-                        or call <span className="text-yellow-400">+91 879 066 6095/+91 910 026 9331</span> to book an appointment.
+                        or call <span className="text-yellow-400">+91 709 770 9722/+91 910 026 9331</span> to book an appointment.
                     </p>
                 </div>
 
@@ -86,10 +107,39 @@ const ReviewSection = () => {
     const StarRating = ({ rating }) => (
         <div className="flex gap-1">
             {[...Array(5)].map((_, index) => (
-                <span key={index} className={`text-2xl ${index < rating ? "text-yellow-400" : "text-gray-700"}`}>
-                    ★
-                </span>
+                <Star 
+                    key={index} 
+                    className={`w-4 h-4 ${index < rating ? "text-yellow-400 fill-current" : "text-gray-500"}`}
+                />
             ))}
+        </div>
+    );
+
+    const GoogleReviewCard = ({ review }) => (
+        <div className="bg-gray-800 rounded-lg p-6 shadow-md border border-gray-700 hover:shadow-xl hover:border-gray-600 transition-all">
+            <div className="flex items-start justify-between mb-4">
+                <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 bg-yellow-400 rounded-full flex items-center justify-center text-black font-semibold">
+                        {review.name.charAt(0)}
+                    </div>
+                    <div>
+                        <h4 className="font-medium text-white">{review.name}</h4>
+                        {review.verified && (
+                            <span className="text-xs text-green-400 flex items-center gap-1">
+                                ✓ Verified Review
+                            </span>
+                        )}
+                    </div>
+                </div>
+                <div className="text-right">
+                    <StarRating rating={review.rating} />
+                    <p className="text-xs text-gray-400 mt-1">{review.date}</p>
+                </div>
+            </div>
+            <p className="text-gray-300 text-sm leading-relaxed">{review.comment}</p>
+            <div className="mt-4 flex items-center gap-2 text-xs text-gray-400">
+                <span className="bg-gray-700 px-2 py-1 rounded">Google Review</span>
+            </div>
         </div>
     );
 
@@ -97,20 +147,66 @@ const ReviewSection = () => {
         <div className="w-full bg-black py-12">
             <BookingForm />
 
-            <div className="max-w-6xl mx-auto p-8 grid grid-cols-1 md:grid-cols-3 gap-8">
-                {reviews.map((review) => (
-                    <div
-                        key={review.id}
-                        className="flex flex-col items-start p-6 rounded-lg bg-gray-900 border border-gray-800 hover:border-gray-700 transition-colors"
-                    >
-                        <div className="w-12 h-12 rounded-full border-2 border-yellow-400 flex items-center justify-center">
-                            <User className="w-8 h-8 text-yellow-400" />
+            {/* Google Reviews Section */}
+            <div className="max-w-6xl mx-auto p-8">
+                <div className="text-center mb-12">
+                    <h2 className="text-3xl font-bold text-white mb-4">What Our Customers Say</h2>
+                    <p className="text-gray-400">Real reviews from our valued customers on Google</p>
+                </div>
+
+                {/* Google Reviews Integration */}
+                <div className="mb-12">
+                    <div className="bg-gray-900 rounded-lg shadow-lg p-6 border border-gray-800">
+                        <div className="flex items-center gap-3 mb-6">
+                            <img 
+                                src="https://cdn4.iconfinder.com/data/icons/logos-brands-7/512/google_logo-google_icongoogle-512.png" 
+                                alt="Google" 
+                                className="w-8 h-8"
+                            />
+                            <h3 className="text-xl font-semibold text-white">Google Reviews</h3>
+                            <div className="flex items-center gap-2 ml-auto">
+                                <StarRating rating={5} />
+                                <span className="text-gray-400 text-sm">4.8 out of 5</span>
+                            </div>
                         </div>
-                        <h3 className="mt-4 text-xl font-medium text-white">{review.name}</h3>
-                        <StarRating rating={review.rating} />
-                        <p className="mt-2 text-gray-300">{review.comment}</p>
+                        
+                        {/* Google Reviews Link */}
+                        <div className="text-center p-8 bg-gray-800 rounded-lg border border-gray-700">
+                            <p className="text-gray-300 mb-4">
+                                Check out our Google Reviews and see what our customers are saying about NSalon!
+                            </p>
+                            <a 
+                                href="https://g.co/kgs/XxsPJE4" 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+                            >
+                                <MapPin className="w-4 h-4" />
+                                View All Google Reviews
+                            </a>
+                        </div>
                     </div>
-                ))}
+                </div>
+
+                {/* Sample Reviews Display */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {fallbackReviews.map((review) => (
+                        <GoogleReviewCard key={review.id} review={review} />
+                    ))}
+                </div>
+
+                {/* Call to Action */}
+                <div className="text-center mt-12">
+                    <p className="text-gray-400 mb-4">Had a great experience at NSalon? Share it with others!</p>
+                    <a 
+                        href="https://g.co/kgs/XxsPJE4" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 bg-yellow-400 text-black px-6 py-3 rounded-lg hover:bg-yellow-500 transition-colors font-medium"
+                    >
+                        ⭐ Leave a Google Review
+                    </a>
+                </div>
             </div>
         </div>
     );

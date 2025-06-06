@@ -1,6 +1,11 @@
 import React from 'react';
 import { MapPin, Phone, Clock } from 'lucide-react';
 import branch1 from '../assets/branch1.jpg';
+import branch2 from '../assets/branch2.webp';
+import branch3 from '../assets/branch3.webp';
+import branch4 from '../assets/branch4.webp';
+import branch5 from '../assets/branch5.webp';
+import branch6 from '../assets/branch6.webp';
 
 const Branches = () => {
     const branches = [
@@ -10,6 +15,34 @@ const Branches = () => {
             phone: "+91 709 770 9722",
             hours: "10:00 AM - 9:00 PM",
             image: branch1
+        },
+        {
+            name: "Chanakyapuri, Hyderabad",
+            address: "pt NO .09 , Road : 2, INDRAPRASTHA COLONY, Mannava Enclave, Chanakyapuri, Mansoorabad, Hyderabad, Telangana 500035",
+            phone: "+91 087906 66095",
+            hours: "10:00 AM - 9:00 PM",
+            image: branch2
+        },
+        {
+            name: "Chintalkunta, Hyderabad",
+            address: "opp: grab&go, Jahangir Nagar Rd, beside tea kings, Abhyudaya Nagar, Chintalkunta, Hyderabad, Telangana 500074",
+            phone: "+91 087906 66095",
+            hours: "10:00 AM - 9:00 PM",
+            image: branch4
+        },
+        {
+            name: "Old Bowenpally, Hyderabad",
+            address: "Ground Floor, Plot.no. 1, opp. Destiny Apartments, Sai Nagar, Kanajiguda, Old Bowenpally, Hyderabad, Secunderabad, Telangana 500015",
+            phone: "+91 087906 66095",
+            hours: "10:00 AM - 9:00 PM",
+            image: branch5
+        },
+        {
+            name: "Sanathnagar, Hyderabad",
+            address: "street No :4 Akruthi Nilayam c\"zen colony sanathnagar, Hyderabad, Telangana 500018",
+            phone: "+91 087906 66095",
+            hours: "10:00 AM - 9:00 PM",
+            image: branch6
         },
     ];
 

@@ -76,8 +76,8 @@ const MultiBannerCarousel = () => {
 
     return (
         <div className="bg-black py-4 sm:py-10">
-            <div className="container mx-auto px-4">
-                <div className="relative h-[90vh] sm:h-[400px] md:h-[550px]">
+            <div className="w-full]">
+                <div className="relative h-[90vh]">
                     {banners.map((banner, index) => (
                         <div
                             key={index}
@@ -87,7 +87,7 @@ const MultiBannerCarousel = () => {
                         >
                             {/* Background image with proper responsive handling */}
                             <div 
-                                className="absolute inset-0 w-full h-full bg-contain bg-center bg-no-repeat"
+                                className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
                                 style={{
                                     backgroundImage: `url(${isMobile ? banner.mobileImage : banner.bgImage})`,
                                 }}
@@ -148,18 +148,18 @@ const MultiBannerCarousel = () => {
 
 const Header = () => {
     return (
-        <div className="min-h-screen pb-40">
+        <div className="min-h-screen">
             <Navbar />
             <div className="pt-16">
                 <MultiBannerCarousel />
             </div>
-            <div>
+            {/* <div>
                 <div className="text-center py-6 sm:py-12 flex justify-center mt-10 sm:mt-20">
                     <h2 className="text-lg sm:text-5xl text-black font-bold bg-white px-4 sm:px-8 rounded-md w-11/12 sm:w-auto shadow-md">
                         LOOK SHARP FEEL GOOD
                     </h2>
                 </div>
-            </div>
+            </div> */}
         </div>
     );
 };
