@@ -49,36 +49,41 @@ const MultiBannerCarousel = () => {
             position: "items-center justify-start text-center pt-4 sm:pt-6 md:pt-8" // Responsive top centered
         },
         {
-            // title: "RADIANT REVIVAL",
-            // description: "Refresh and restore your skin with our specialized care, designed to bring out your natural glow.",
+            title: "RADIANT REVIVAL",
+            description: "Refresh and restore your skin with our specialized care, designed to bring out your natural glow.",
             bgImage: slide2,
             mobileImage: mobileSlide2,
-            // position: "items-end justify-center text-right pr-16 pl-64" // Right aligned
+            position: "items-end justify-center text-right pr-[51rem]" // Right aligned
         }
     ];
 
+    // Filter banners for mobile - show only first banner on mobile
+    const displayBanners = isMobile ? [banners[0]] : banners;
+
     const nextBanner = () => {
-        setCurrentBanner((prev) => (prev + 1) % banners.length);
+        setCurrentBanner((prev) => (prev + 1) % displayBanners.length);
     };
 
     const prevBanner = () => {
-        setCurrentBanner((prev) => (prev - 1 + banners.length) % banners.length);
+        setCurrentBanner((prev) => (prev - 1 + displayBanners.length) % displayBanners.length);
     };
     
-    // Auto-rotate banners
+    // Auto-rotate banners - only if more than one banner
     useEffect(() => {
-        const interval = setInterval(() => {
-            nextBanner();
-        }, 5000);
-        
-        return () => clearInterval(interval);
-    }, []);
+        if (displayBanners.length > 1) {
+            const interval = setInterval(() => {
+                nextBanner();
+            }, 5000);
+            
+            return () => clearInterval(interval);
+        }
+    }, [displayBanners.length]);
 
     return (
         <div className="bg-black py-4 sm:py-10">
             <div className="w-full]">
                 <div className="relative h-[90vh]">
-                    {banners.map((banner, index) => (
+                    {displayBanners.map((banner, index) => (
                         <div
                             key={index}
                             className={`w-full h-full rounded-2xl overflow-hidden absolute transition-opacity duration-500 ${
@@ -97,7 +102,7 @@ const MultiBannerCarousel = () => {
                             <div className="absolute inset-0 bg-black opacity-30"></div>
                             
                             {/* Content overlay with responsive dynamic positioning */}
-                            <div className={`absolute inset-0 flex flex-col p-4 sm:p-6 md:p-8 ${banner.position}`}>
+                            <div className={`absolute inset-0 flex flex-col p-4 ${banner.position}`}>
                                 {banner.title && (!isMobile || index !== 0) && (
                                     <h2 className="text-lg sm:text-3xl md:text-5xl font-bold text-white mb-2 sm:mb-4 md:mb-6 px-2">{banner.title}</h2>
                                 )}
@@ -110,36 +115,42 @@ const MultiBannerCarousel = () => {
                         </div>
                     ))}
                     
-                    {/* Navigation arrows */}
-                    <button 
-                        onClick={prevBanner} 
-                        className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-20 bg-white/30 hover:bg-white/50 rounded-full p-1 sm:p-2 transition-colors"
-                        aria-label="Previous slide"
-                    >
-                        <ChevronLeft className="w-4 h-4 sm:w-6 sm:h-6 text-white" />
-                    </button>
+                    {/* Navigation arrows - only show if more than one banner */}
+                    {displayBanners.length > 1 && (
+                        <>
+                            <button 
+                                onClick={prevBanner} 
+                                className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-20 bg-white/30 hover:bg-white/50 rounded-full p-1 sm:p-2 transition-colors"
+                                aria-label="Previous slide"
+                            >
+                                <ChevronLeft className="w-4 h-4 sm:w-6 sm:h-6 text-white" />
+                            </button>
+                            
+                            <button 
+                                onClick={nextBanner} 
+                                className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-20 bg-white/30 hover:bg-white/50 rounded-full p-1 sm:p-2 transition-colors"
+                                aria-label="Next slide"
+                            >
+                                <ChevronRight className="w-4 h-4 sm:w-6 sm:h-6 text-white" />
+                            </button>
+                        </>
+                    )}
                     
-                    <button 
-                        onClick={nextBanner} 
-                        className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-20 bg-white/30 hover:bg-white/50 rounded-full p-1 sm:p-2 transition-colors"
-                        aria-label="Next slide"
-                    >
-                        <ChevronRight className="w-4 h-4 sm:w-6 sm:h-6 text-white" />
-                    </button>
-                    
-                    {/* Slide indicators */}
-                    <div className="absolute bottom-3 sm:bottom-5 left-1/2 -translate-x-1/2 z-20 flex space-x-2">
-                        {banners.map((_, index) => (
-                            <button
-                                key={index}
-                                onClick={() => setCurrentBanner(index)}
-                                className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-colors ${
-                                    index === currentBanner ? 'bg-white' : 'bg-white/50'
-                                }`}
-                                aria-label={`Go to slide ${index + 1}`}
-                            />
-                        ))}
-                    </div>
+                    {/* Slide indicators - only show if more than one banner */}
+                    {displayBanners.length > 1 && (
+                        <div className="absolute bottom-3 sm:bottom-5 left-1/2 -translate-x-1/2 z-20 flex space-x-2">
+                            {displayBanners.map((_, index) => (
+                                <button
+                                    key={index}
+                                    onClick={() => setCurrentBanner(index)}
+                                    className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-colors ${
+                                        index === currentBanner ? 'bg-white' : 'bg-white/50'
+                                    }`}
+                                    aria-label={`Go to slide ${index + 1}`}
+                                />
+                            ))}
+                        </div>
+                    )}
                 </div>
             </div>
         </div>
@@ -153,13 +164,6 @@ const Header = () => {
             <div className="pt-16">
                 <MultiBannerCarousel />
             </div>
-            {/* <div>
-                <div className="text-center py-6 sm:py-12 flex justify-center mt-10 sm:mt-20">
-                    <h2 className="text-lg sm:text-5xl text-black font-bold bg-white px-4 sm:px-8 rounded-md w-11/12 sm:w-auto shadow-md">
-                        LOOK SHARP FEEL GOOD
-                    </h2>
-                </div>
-            </div> */}
         </div>
     );
 };
